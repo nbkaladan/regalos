@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="jugadores list-group">
+                <li data-ng-repeat="jugador in vm.entity" class="row list-group-item jugador panel panel-default">
+                    <div class="col-md-12">
+                        <div class="row panel-heading">
+                            <input placeholder="Nombre del jugador" class="col-md-10" type="text" data-ng-model="jugador.nombre" data-ng-change="vm.updatePlayer(jugador)" data-ng-model-options="{debounce:500}">
+                            <span class="col-md-1">
+                                <label class="badge">{[{jugador.carta_de_reyes.length}]}</label>
+                            </span>
+                            <span class="col-md-1" data-ng-click="vm.removePlayer($index)">
+                                <button type="button" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-minus"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="row panel-body">
+                            <div class="col-md-12">
+                                <ul class="list-group">
+                                    <li data-ng-repeat="regalo in jugador.carta_de_reyes" class="row list-group-item">
+                                        <div class="col-md-11">
+                                            <div class="row">
+                                                <input type="text" placeholder="Nombre del regalo" data-ng-model="regalo.nombre" class="col-md-12" data-ng-change="vm.updatePresent(jugador.id, regalo)" data-ng-options="{debounce:500}">
+                                            </div>
+                                            <div class="row">
+                                                <textarea placeholder="Descripción" data-ng-model="regalo.descripcion" class="col-md-12" rows="5" data-ng-change="vm.updatePresent(jugador.id, regalo)" data-ng-options="{debounce:500}"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1" data-ng-click="vm.removePresent($parent.$index, $index)">
+                                            <span class="btn btn-danger">
+                                                <i class="glyphicon glyphicon-minus"></i>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="row list-group-item" data-ng-click="vm.addPresent($index)">
+                                        <div class="col-md-2 col-md-offset-5 btn btn-success">
+                                            <label>Añadir regalo</label>
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <nav class="navbar navbar-fixed-bottom navbar-default" role="navigation">
+        <div class="navbar-form text-center">
+            <button type="button" class="btn btn-info" data-ng-click="vm.addPlayer()">
+                <label>Añadir jugador</label>
+                <i class="glyphicon glyphicon-plus"></i>
+            </button>
+        </div>
+    </nav>
+</div>

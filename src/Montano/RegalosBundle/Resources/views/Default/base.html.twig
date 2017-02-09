@@ -1,0 +1,21 @@
+{# app/Resources/views/Default/base.html.twig #}
+<!DOCTYPE>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %} | Regalos</title>
+    {% block stylesheets %}{% endblock %}
+    {% block head_script %}{% endblock %}
+</head>
+<body>
+<div class="wrapper">
+    <div id="contenedor" class="container">
+        {% block body %}{% endblock %}
+        <footer>
+        </footer>
+        {% block javascripts %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'MontanoRegalosBundle:Default:base.html.twig' %}
+{% block title %}
+    Regalos
+{% endblock title %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/montanoregalos/vendor/bootstrap/css/bootstrap.css') }}">
+{% endblock %}
+
+{% block head_script %}
+    {% javascripts
+        '@MontanoRegalosBundle/Resources/public/vendor/angular/angular.js'
+        '@MontanoRegalosBundle/Resources/public/vendor/angular/i18n/angular-locale_es-es.js'
+        '@MontanoRegalosBundle/Resources/public/vendor/angular/angular-route.js'
+        '@MontanoRegalosBundle/Resources/public/vendor/angular/angular-animate.js'
+        '@MontanoRegalosBundle/Resources/public/vendor/angular/angular-sanitize.js'
+        '@MontanoRegalosBundle/Resources/public/vendor/angular/angular-resource.js'
+        '@MontanoRegalosBundle/Resources/public/vendor/angular-ui/ui-bootstrap-tpls.js'
+        '@MontanoRegalosBundle/Resources/public/js/app.module.js'
+        '@MontanoRegalosBundle/Resources/public/js/core/core.module.js'
+        '@MontanoRegalosBundle/Resources/public/js/core/core.config.js'
+        '@MontanoRegalosBundle/Resources/public/js/core/core.route.js'
+        '@MontanoRegalosBundle/Resources/public/js/core/core.dataservice.js'
+        '@MontanoRegalosBundle/Resources/public/js/jugadores/jugadores.module.js'
+        '@MontanoRegalosBundle/Resources/public/js/jugadores/jugadores.controller.js'
+        output='js/compiled/vendors.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock head_script %}
+
+{% block body %}
+<div data-ng-app="Regalos">
+    <div data-ng-view></div>
+</div>
+{% endblock body%}

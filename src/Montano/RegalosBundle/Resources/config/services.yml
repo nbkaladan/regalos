@@ -1,0 +1,21 @@
+parameters:
+#    virtualtraining_revision.example.class: Virtualtraining\RevisionBundle\Example
+    montano_regalos.jugador.handler.class: Montano\RegalosBundle\Handler\JugadorHandler
+    montano_regalos.jugador.class: Montano\RegalosBundle\Entity\Jugador
+    montano_regalos.regalo.handler.class: Montano\RegalosBundle\Handler\RegaloHandler
+    montano_regalos.regalo.class: Montano\RegalosBundle\Entity\Regalo
+
+services:
+#    virtualtraining_revision.example:
+#        class: %virtualtraining_revision.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    montano_regalos.jugador.handler:
+        class: %montano_regalos.jugador.handler.class%
+        arguments: [@doctrine.orm.entity_manager, %montano_regalos.jugador.class%, @form.factory]
+    montano_regalos.regalo.handler:
+        class: %montano_regalos.regalo.handler.class%
+        arguments: [@doctrine.orm.entity_manager, %montano_regalos.regalo.class%, @form.factory]
+    montano_regalos.type.regalo:
+        class: Montano\RegalosBundle\Form\RegaloType
+        tags:
+          - {name: form.type, alias: Regalo}

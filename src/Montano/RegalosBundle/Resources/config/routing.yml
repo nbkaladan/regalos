@@ -1,0 +1,19 @@
+montano_regalos_homepage:
+    path:     /
+    defaults:
+      _controller: MontanoRegalosBundle:Default:index
+
+montano_angular_partials:
+    pattern:     /partials/{partial}
+    defaults:
+      _controller: MontanoRegalosBundle:Partials:index
+
+montano_regalos_rest_jugador:
+    type:     rest
+    prefix:   /api
+    resource: "Montano\RegalosBundle\Controller\JugadorController"
+    #defaults: { _format: json}
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
